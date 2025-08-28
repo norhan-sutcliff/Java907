@@ -1,0 +1,16 @@
+Create table Manager(id int not null, name varchar(50), age int, birth_date date, address varchar(50) );
+
+alter table Manager drop column address;
+alter table Manager add city_address varchar(50);
+alter table Manager add street varchar(50);
+
+alter table Manager rename column name to full_name;
+
+alter table Manager read only;
+
+create table Owner as select id, name, birth_date from Manager;
+
+alter table Manager rename to Master;
+
+drop table Master;
+drop table Owner;
